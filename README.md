@@ -13,9 +13,9 @@ I'll take this tutorial and add parallel training to it.
 https://medium.com/@nutanbhogendrasharma/pytorch-convolutional-neural-network-with-mnist-dataset-4e8a4265e118
 
 Steps for parallelizing the code (running on multiple GPUs):
-1) In your train loop, you must move the data to the GPU: img = img.to(device), where device should be "cuda"
-2) After you instantiate your model, move it to the GPU: cnn = torch.nn.DataParalle(cnn).cuda()
-3) You can optionally set: cudnn.benchmark=True - this may give a performance boost
+1) In your train loop, you must move the data to the GPU: <pre>img = img.to(device)</pre>, where device should be "cuda"
+2) After you instantiate your model, move it to the GPU: <pre>cnn = torch.nn.DataParalle(cnn).cuda()</pre>
+3) You can optionally set: <pre>cudnn.benchmark=True</pre> - this may give a performance boost
 
 If everything works correctly, while your model is training, you can run <pre>nvidia-smi</pre> in a second terminal window. You should see something similar to this:
 
