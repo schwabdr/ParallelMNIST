@@ -1,7 +1,7 @@
 # ParallelMNIST
 A simple example of how to parallelize MNIST training using PyTorch.
 
-First create a new conda environment:
+First create a new conda environment, then install the following packages to your environment:
 
 <pre>
 conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
@@ -13,7 +13,7 @@ I'll take this tutorial and add parallel training to it.
 https://medium.com/@nutanbhogendrasharma/pytorch-convolutional-neural-network-with-mnist-dataset-4e8a4265e118
 
 Steps for parallelizing the code (running on multiple GPUs):
-1) In your train loop, you must move the data to the GPU: <pre>img = img.to(device)</pre>, where device should be "cuda"
+1) In your train loop, you must move the data to the GPU: <pre>img = img.to(device)</pre> where device should be "cuda"
 2) After you instantiate your model, move it to the GPU: <pre>cnn = torch.nn.DataParalle(cnn).cuda()</pre>
 3) You can optionally set: <pre>cudnn.benchmark=True</pre> - this may give a performance boost
 
